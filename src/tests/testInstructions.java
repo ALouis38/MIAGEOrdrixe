@@ -7,9 +7,9 @@ public class testInstructions {
 	public static void main(String[] args) {
 		
 		// instanciation des opérandes
-		Operande op1 = new Operande(" ", 4);
+		Operande op1 = new Operande(new Immediat(), 4);
 		System.out.println(op1.valeur());
-		Operande op2 = new Operande(" ", 2);
+		Operande op2 = new Operande(new Immediat(), 2);
 		System.out.println(op2.valeur());
 		
 		// instanciation des inst 
