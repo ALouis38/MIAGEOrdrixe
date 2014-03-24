@@ -1,4 +1,5 @@
-package instructions;
+package instructions.adressages;
+
 
 public class Immediat extends Adressage{
 	/**

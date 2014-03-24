@@ -1,5 +1,7 @@
 package instructions;
 
+import instructions.adressages.Adressage;
+
 public class Operande {
 	
 	private Adressage typeAdr;

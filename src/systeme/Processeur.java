@@ -1,6 +1,6 @@
 package systeme;
 
-import instructions.Instruction;
+import instructions.operations.Instruction;
 
 public class Processeur {
 

@@ -1,4 +1,4 @@
-package instructions;
+package instructions.adressages;
 
 public abstract class Adressage {
 	protected String symbole;

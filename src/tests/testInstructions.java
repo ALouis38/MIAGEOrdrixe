@@ -1,6 +1,12 @@
 package tests;
 
 import instructions.*;
+import instructions.adressages.Immediat;
+import instructions.operations.Add;
+import instructions.operations.Div;
+import instructions.operations.Mod;
+import instructions.operations.Mul;
+import instructions.operations.Sub;
 
 public class testInstructions {
 

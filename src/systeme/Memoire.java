@@ -1,5 +1,6 @@
 package systeme;
 import instructions.*;
+import instructions.operations.Instruction;
 
 public class Memoire {
 	

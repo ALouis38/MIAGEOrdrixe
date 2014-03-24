@@ -1,4 +1,4 @@
-package instructions;
+package instructions.adressages;
 
 public class RelatifIndirect extends Adressage {
 	/**

@@ -1,4 +1,7 @@
-package instructions;
+package instructions.operations;
+
+import instructions.Etiquette;
+import instructions.Operande;
 
 public class Mul extends Instruction {
 	
