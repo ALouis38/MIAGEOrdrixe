@@ -1,9 +1,33 @@
 package systeme;
+import instructions.*;
 
 public class Memoire {
 	
-	private instructions.Instruction[] contenu;
+	private Instruction [] contenu;
 	
+	/**
+	 * constructeur de mémoire
+	 * @param taille
+	 */
+	public Memoire(int taille){
+		this.contenu = new Instruction[32];
+	}
 	
+	/**
+	 * accesseur du contenu de la mémoire
+	 * @return contenu
+	 */
+	public Instruction[] contenu(){
+		return this.contenu;
+	}
+	
+	/**
+	 * accesseur d'une intruction de la mémoire
+	 * @param compteurOrdinal
+	 * @return instruction
+	 */
+	public Instruction instruction(int compteurOrdinal){
+		return contenu()[compteurOrdinal];
+	}
 
 }
