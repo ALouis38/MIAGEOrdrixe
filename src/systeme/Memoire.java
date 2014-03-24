@@ -38,4 +38,5 @@ public class Memoire {
 	public void instruction(int compteurOrdinal, Instruction instruction){
 		contenu()[compteurOrdinal] = instruction;
 	}
+	
 }
