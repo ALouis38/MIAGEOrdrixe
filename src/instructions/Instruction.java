@@ -1,6 +1,6 @@
 package instructions;
 
-abstract class Instruction {
+public abstract class Instruction {
 	
 	protected Etiquette etiquette;
 	protected Operande op1;
@@ -57,6 +57,14 @@ abstract class Instruction {
 	 */
 	public void op2(Operande op2) {
 		this.op2 = op2;
+	}
+	
+	/**
+	 * stocke en mémoire le résultat de l'opération
+	 * @param resultat
+	 */
+	protected void stocker(int resultat){
+		op2().valeur(resultat);
 	}
 	
 	

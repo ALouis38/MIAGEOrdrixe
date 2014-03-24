@@ -7,7 +7,8 @@ public class Div extends Instruction {
 		// opération
 		int resultat = op1().valeur() / op2().valeur();
 		
-		// TODO placement en mémoire
+		// stockage du resultat dans l'opérande 2
+		stocker(resultat);
 	}
 
 }
