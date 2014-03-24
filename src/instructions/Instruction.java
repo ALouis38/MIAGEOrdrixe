@@ -7,6 +7,46 @@ public abstract class Instruction {
 	protected Operande op2;
 	
 	/**
+	 * Constructeur d'une instruction avec etiquette et deux opérandes
+	 * @param etiquette
+	 * @param op1
+	 * @param op2
+	 */
+	public Instruction(Etiquette etiquette, Operande op1, Operande op2){
+		this.etiquette = etiquette;
+		this.op1 = op1;
+		this.op2 = op2;
+	}
+	
+	/**
+	 * Constructeur d'une instruction avec etiquette et une opérande 
+	 * @param etiquette
+	 * @param op2
+	 */
+	public Instruction(Etiquette etiquette, Operande op2){
+		this.etiquette = etiquette;
+		this.op2 = op2;
+	}
+	
+	/**
+	 * Constructeur d'une instruction avec deux opérandes
+	 * @param op1
+	 * @param op2
+	 */
+	public Instruction(Operande op1, Operande op2){
+		this.op1 = op1;
+		this.op2 = op2;
+	}
+	
+	/**
+	 * Constructeur d'une instruction avec une opérande
+	 * @param op2
+	 */
+	public Instruction(Operande op2){
+		this.op2 = op2;
+	}
+	
+	/**
 	 * exectution de l'instruction (ex : ADD, MOV, etc)
 	 */
 	abstract void execute();
