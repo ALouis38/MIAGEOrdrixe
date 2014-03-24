@@ -5,7 +5,8 @@ public abstract class Instruction {
 	protected Etiquette etiquette;
 	protected Operande op1;
 	protected Operande op2;
-	
+	protected int adresse = 0;
+
 	/**
 	 * Constructeur d'une instruction avec etiquette et deux opérandes
 	 * @param etiquette
@@ -97,6 +98,22 @@ public abstract class Instruction {
 	 */
 	public void op2(Operande op2) {
 		this.op2 = op2;
+	}
+	
+	/**
+	 * accesseur d'adresse
+	 * @return
+	 */
+	public int adresse(){
+		return this.adresse;
+	}
+	
+	/**
+	 * mutateur d'adresse
+	 * @param adresse
+	 */
+	public void adresse(int adresse){
+		this.adresse = adresse();
 	}
 	
 	/**
