@@ -30,4 +30,12 @@ public class Memoire {
 		return contenu()[compteurOrdinal];
 	}
 
+	/**
+	 * Ajout d'une instruction
+	 * @param compteurOrdinal
+	 * @param instruction
+	 */
+	public void instruction(int compteurOrdinal, Instruction instruction){
+		contenu()[compteurOrdinal] = instruction;
+	}
 }
