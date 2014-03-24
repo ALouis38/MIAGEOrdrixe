@@ -1,5 +1,5 @@
 package systeme;
 
-public class memoire {
+public class Memoire {
 
 }

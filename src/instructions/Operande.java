@@ -1,5 +1,5 @@
 package instructions;
 
-public class instruction {
+public class Operande {
 
 }
