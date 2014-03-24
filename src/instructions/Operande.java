@@ -7,6 +7,16 @@ public class Operande {
 	private int valeur;
 	
 	/**
+	 * Constructeur d'opérande
+	 * @param typeAdr
+	 * @param valeur
+	 */
+	public Operande(String typeAdr, int valeur){
+		this.typeAdr = typeAdr;
+		this.valeur = valeur;
+	}
+	
+	/**
 	 * TODO Retourne la valeur selon le type d'adressage
 	 * @return valeur
 	 */

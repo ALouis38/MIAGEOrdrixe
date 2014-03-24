@@ -5,6 +5,14 @@ public class Etiquette {
 	private String etiq;
 	
 	/**
+	 * Constructeur d'étiquette
+	 * @param etiq
+	 */
+	public Etiquette(String etiq){
+		this.etiq = etiq;
+	}
+	
+	/**
 	 * Setter d'étiquette
 	 * @param etiq
 	 */
