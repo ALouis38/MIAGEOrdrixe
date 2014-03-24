@@ -1,5 +1,0 @@
-Instruction ::= [":"Etiquette] Code Type@ Operande [Type@ Operande]
-Type@ ::= "#" | "@" | ø | "$"
-Code ::= "DAT" | "MOV" | OP | BR
-OP ::= "ADD" | "SUB" | "MUL" | "DIV" | "MOD"
-BR ::= "JMP" | "JMZ" | "JMN" | "DJN" | "CMP" | "SLT"

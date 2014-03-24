@@ -2,7 +2,7 @@ package instructions;
 
 public class Operande {
 	
-	private String typeAdr;
+	private Adressage typeAdr;
 	
 	private int valeur;
 	
@@ -11,7 +11,7 @@ public class Operande {
 	 * @param typeAdr
 	 * @param valeur
 	 */
-	public Operande(String typeAdr, int valeur){
+	public Operande(Adressage typeAdr, int valeur){
 		this.typeAdr = typeAdr;
 		this.valeur = valeur;
 	}
