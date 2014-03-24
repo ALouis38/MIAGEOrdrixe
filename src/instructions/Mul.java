@@ -22,7 +22,7 @@ public class Mul extends Instruction {
 	}
 
 	@Override
-	void execute() {
+	public void execute() {
 		// opération
 		int resultat = op1().valeur() * op2().valeur();
 		
