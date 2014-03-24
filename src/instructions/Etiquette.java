@@ -5,7 +5,7 @@ public class Etiquette {
 	private String etiq;
 	
 	/**
-	 * Setter
+	 * Setter d'étiquette
 	 * @param etiq
 	 */
 	public void etiq(String etiq){
@@ -13,7 +13,7 @@ public class Etiquette {
 	}
 	
 	/**
-	 * Accesseur
+	 * Accesseur d'étiquette
 	 * @return
 	 */
 	public String etiq(){

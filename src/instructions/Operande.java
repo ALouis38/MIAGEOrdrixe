@@ -7,7 +7,7 @@ public class Operande {
 	private int valeur;
 	
 	/**
-	 * Accesseur de valeur
+	 * TODO Retourne la valeur selon le type d'adressage
 	 * @return valeur
 	 */
 	public int valeur(){
