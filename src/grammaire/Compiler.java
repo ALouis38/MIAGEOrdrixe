@@ -188,10 +188,10 @@ public class Compiler implements CompilerConstants {
       jj_la1_0 = new int[] {0x0,0x0,0x0,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x0,0x0,0xc0000000,};
+      jj_la1_1 = new int[] {0x0,0x0,0xe0000000,};
    }
    private static void jj_la1_init_2() {
-      jj_la1_2 = new int[] {0x7ffc,0x7ffc,0x1,};
+      jj_la1_2 = new int[] {0x3ffe,0x3ffe,0x0,};
    }
 
   /** Constructor with InputStream. */
@@ -308,7 +308,7 @@ public class Compiler implements CompilerConstants {
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[79];
+    boolean[] la1tokens = new boolean[78];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
@@ -328,7 +328,7 @@ public class Compiler implements CompilerConstants {
         }
       }
     }
-    for (int i = 0; i < 79; i++) {
+    for (int i = 0; i < 78; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;
