@@ -1,6 +1,6 @@
 Instruction ::= [":"Etiquette] Code Type@ Operande [Type@ Operande]
 
-Type@ ::= "#" | "@" | ø  | "$"
+Type@ ::= "#" | "@" | ï¿½  | "$"
 
 # = "#"("-")?(["0"-"9"])
 @ = "@"(["0"-"9"])
