@@ -11,6 +11,7 @@ public class Chargeur {
 	
 	private Memoire memSysteme;
 	
+	
 	/**
 	 * Constructeur
 	 * @param taille de la mémoire
