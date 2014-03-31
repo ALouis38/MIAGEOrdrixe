@@ -53,7 +53,7 @@ public abstract class Instruction {
 	/**
 	 * exectution de l'instruction (ex : ADD, MOV, etc)
 	 */
-	public abstract void execute();
+	public abstract int execute();
 
 	/**
 	 * accesseur d'etiquette
@@ -125,8 +125,6 @@ public abstract class Instruction {
 	 */
 	protected void stocker(int resultat){
 		op2().valeur(resultat);
-		
-		// TODO stockage dans le tableau de la mémoire
 	}
 	
 	
