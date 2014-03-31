@@ -2,7 +2,11 @@ package systeme;
 
 public class Systeme {
 	
-	public static void main(String[] args) {
+	Memoire memoire;
+	Processeur processeur;
+	Processus [] listeProcessus;
 	
+	public static void main(String[] args) {
+		
 	}
 }
