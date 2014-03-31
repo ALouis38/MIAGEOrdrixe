@@ -6,14 +6,14 @@ public abstract class Adressage {
 	 * Setter
 	 * @param symbole Le symbole de l'adressage
 	 */
-	protected void symbole(String symbole){
+	public void symbole(String symbole){
 		this.symbole = symbole;
 	}
 	/**
 	 * Getter
 	 * @return la représentation du symbole de l'adressage
 	 */
-	protected String symbole(){
+	public String symbole(){
 		return this.symbole;
 	}
 }
