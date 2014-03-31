@@ -53,7 +53,7 @@ public abstract class Instruction {
 	/**
 	 * exectution de l'instruction (ex : ADD, MOV, etc)
 	 */
-	public abstract int execute();
+	public abstract boolean execute();
 
 	/**
 	 * accesseur d'etiquette

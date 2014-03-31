@@ -11,7 +11,7 @@ public class Memoire {
 	 * @param taille
 	 */
 	public Memoire(int taille){
-		this.contenu = new Instruction[32];
+		this.contenu = new Instruction[(int) Math.pow(2, taille)];
 	}
 	
 	/**
