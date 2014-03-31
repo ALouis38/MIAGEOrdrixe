@@ -51,7 +51,7 @@ public class Processus {
 	/**
 	 * Fonction permettant de passer le pointeur à l'instruction suivante
 	 */
-	public void adresseSuivante(){
-		adresseCourrante++;
+	public void adresseSuivante(int adresse){
+		adresseCourrante = adresse;
 	}
 }

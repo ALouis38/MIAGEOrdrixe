@@ -19,7 +19,7 @@ public class Processeur {
 	 */
 	public int execute(){
 		if (registreInstruction instanceof Branchement) {
-			compteurOrdinal = registreInstruction.execute(compteurOrdinal);
+			compteurOrdinal = registreInstruction.execute();
 		} else {
 			if (registreInstruction.execute()) {
 				memoire.instruction(compteurOrdinal, registreInstruction);
