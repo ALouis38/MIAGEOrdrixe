@@ -13,9 +13,22 @@ public class Processeur {
 		compteurOrdinal = 0;
 		registreInstruction = memoire.instruction(compteurOrdinal);
 	}
-	
-	public void execute(){
-		registreInstruction.execute();
+	/**
+	 * 
+	 * @return la prochaine adresse à exécuter pour ce processus, -1 si mort
+	 */
+	public int execute(){
+		if (registreInstruction instanceof Branchement) {
+			compteurOrdinal = registreInstruction.execute(compteurOrdinal);
+		} else {
+			if (registreInstruction.execute()) {
+				memoire.instruction(compteurOrdinal, registreInstruction);
+				compteurOrdinal++;
+			} else {
+				compteurOrdinal = -1;
+			}	
+		}
+		return compteurOrdinal;
 	}
 	
 	public void chargerInstruction(){
