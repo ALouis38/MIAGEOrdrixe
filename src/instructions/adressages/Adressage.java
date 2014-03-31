@@ -1,6 +1,8 @@
 package instructions.adressages;
 
-public abstract class Adressage {
+import java.io.Serializable;
+
+public abstract class Adressage implements Serializable  {
 	protected String symbole;
 	/**
 	 * Setter
@@ -11,7 +13,7 @@ public abstract class Adressage {
 	}
 	/**
 	 * Getter
-	 * @return la représentation du symbole de l'adressage
+	 * @return la reprï¿½sentation du symbole de l'adressage
 	 */
 	public String symbole(){
 		return this.symbole;

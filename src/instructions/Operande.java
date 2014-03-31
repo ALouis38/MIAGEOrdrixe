@@ -1,15 +1,17 @@
 package instructions;
 
+import java.io.Serializable;
+
 import instructions.adressages.Adressage;
 
-public class Operande {
+public class Operande implements Serializable {
 	
 	private Adressage typeAdr;
 	
 	private int valeur;
 	
 	/**
-	 * Constructeur d'opérande
+	 * Constructeur d'opï¿½rande
 	 * @param typeAdr
 	 * @param valeur
 	 */
@@ -28,10 +30,27 @@ public class Operande {
 	
 	/**
 	 * Setter de valeur
-	 * @param valeur à affecter
+	 * @param valeur ï¿½ affecter
 	 */
 	public void valeur(int valeur){
 		this.valeur = valeur;
+	}
+	
+	
+	/**
+	 * TODO Retourne la valeur selon le type d'adressage
+	 * @return valeur
+	 */
+	public Adressage adressage(){
+		return this.typeAdr;
+	}
+	
+	/**
+	 * Setter de valeur
+	 * @param valeur ï¿½ affecter
+	 */
+	public void adressage(Adressage typeAdr){
+		this.typeAdr = typeAdr;
 	}
 	
 }

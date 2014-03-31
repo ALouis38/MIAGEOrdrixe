@@ -7,28 +7,20 @@ public class Memoire {
 	private Instruction [] contenu;
 	
 	/**
-	 * constructeur de m�moire
+	 * constructeur de mémoire
 	 * @param taille
 	 */
 	public Memoire(int taille){
-		this.contenu = new Instruction[(int) Math.pow(2, taille)];
+		this.contenu = new Instruction[taille];
 	}
 	
 	/**
-	 * accesseur du contenu de la m�moire
-	 * @return contenu
-	 */
-	public Instruction[] contenu(){
-		return this.contenu;
-	}
-	
-	/**
-	 * accesseur d'une intruction de la m�moire
+	 * accesseur d'une intruction de la mémoire
 	 * @param compteurOrdinal
 	 * @return instruction
 	 */
 	public Instruction instruction(int compteurOrdinal){
-		return contenu()[compteurOrdinal];
+		return contenu[compteurOrdinal];
 	}
 
 	/**
@@ -37,7 +29,19 @@ public class Memoire {
 	 * @param instruction
 	 */
 	public void instruction(int compteurOrdinal, Instruction instruction){
-		contenu()[compteurOrdinal] = instruction;
+		/*Permet à un combattant de placer des instructions à des adresses excédants la taille de la mémoire
+		 * (Choix de déveleoppement retenu)
+		 * */
+		if(compteurOrdinal>=contenu.length){
+			compteurOrdinal = compteurOrdinal % contenu.length;
+		}
+		contenu[compteurOrdinal] = instruction;
+	}
+	
+	public void afficheMemoire(){
+		for(int i=0;i<contenu.length;i++){
+			System.out.println(i + " : " + contenu[i]);
+		}
 	}
 	
 }

@@ -1,9 +1,11 @@
 package instructions.operations;
 
+import java.io.Serializable;
+
 import instructions.Etiquette;
 import instructions.Operande;
 
-public abstract class Instruction {
+public abstract class Instruction implements Serializable {
 	
 	protected Etiquette etiquette;
 	protected Operande op1;
@@ -11,7 +13,7 @@ public abstract class Instruction {
 	protected int adresse = 0;
 
 	/**
-	 * Constructeur d'une instruction avec etiquette et deux opérandes
+	 * Constructeur d'une instruction avec etiquette et deux opï¿½randes
 	 * @param etiquette
 	 * @param op1
 	 * @param op2
@@ -23,7 +25,7 @@ public abstract class Instruction {
 	}
 	
 	/**
-	 * Constructeur d'une instruction avec etiquette et une opérande 
+	 * Constructeur d'une instruction avec etiquette et une opï¿½rande 
 	 * @param etiquette
 	 * @param op2
 	 */
@@ -33,7 +35,7 @@ public abstract class Instruction {
 	}
 	
 	/**
-	 * Constructeur d'une instruction avec deux opérandes
+	 * Constructeur d'une instruction avec deux opï¿½randes
 	 * @param op1
 	 * @param op2
 	 */
@@ -43,7 +45,7 @@ public abstract class Instruction {
 	}
 	
 	/**
-	 * Constructeur d'une instruction avec une opérande
+	 * Constructeur d'une instruction avec une opï¿½rande
 	 * @param op2
 	 */
 	public Instruction(Operande op2){
@@ -67,7 +69,7 @@ public abstract class Instruction {
 	}
 
 	/**
-	 * accesseur opérande 1
+	 * accesseur opï¿½rande 1
 	 * @return
 	 */
 	public Operande op1() {
@@ -75,7 +77,7 @@ public abstract class Instruction {
 	}
 
 	/**
-	 * modificateur d'opérande 1
+	 * modificateur d'opï¿½rande 1
 	 * @param etiquette
 	 */
 	public void op1(Operande op1) {
@@ -83,7 +85,7 @@ public abstract class Instruction {
 	}
 
 	/**
-	 * accesseur opérande 2
+	 * accesseur opï¿½rande 2
 	 * @return
 	 */
 	public Operande op2() {
@@ -91,7 +93,7 @@ public abstract class Instruction {
 	}
 
 	/**
-	 * modificateur d'opérande 2
+	 * modificateur d'opï¿½rande 2
 	 * @param etiquette
 	 */
 	public void op2(Operande op2) {
@@ -115,7 +117,7 @@ public abstract class Instruction {
 	}
 	
 	/**
-	 * stocke en mémoire le résultat de l'opération
+	 * stocke en mï¿½moire le rï¿½sultat de l'opï¿½ration
 	 * @param resultat
 	 */
 	protected void stocker(int resultat){
