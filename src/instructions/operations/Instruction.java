@@ -127,6 +127,4 @@ public abstract class Instruction {
 		op2().valeur(resultat);
 	}
 	
-	
-	
 }
