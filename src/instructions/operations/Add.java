@@ -24,15 +24,4 @@ public class Add extends Instruction {
 		super(etiquette, op1, op2);
 	}
 
-	@Override
-	public boolean execute() {
-		// opération
-		int resultat = op1().valeur() + op2().valeur();
-		
-		// stockage du resultat dans l'opérande 2
-		stocker(resultat);
-		
-		return true;
-	}
-
 }

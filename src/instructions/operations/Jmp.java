@@ -3,7 +3,7 @@ package instructions.operations;
 import instructions.Etiquette;
 import instructions.Operande;
 
-public class Jmp extends Branchement {
+public class Jmp extends Instruction {
 	
 	/**
 	 * Constructeur Jmp avec etiquette + op
@@ -23,11 +23,6 @@ public class Jmp extends Branchement {
 	public Jmp(Operande op2) {
 		super(op2);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public int executeBr() {
-		return op2().valeur();
 	}
 
 }

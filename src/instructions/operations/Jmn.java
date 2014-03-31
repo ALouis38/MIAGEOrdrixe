@@ -3,7 +3,7 @@ package instructions.operations;
 import instructions.Etiquette;
 import instructions.Operande;
 
-public class Jmn extends Branchement {
+public class Jmn extends Instruction {
 	
 	/**
 	 * Constructeur avec etiquette + 2 op
@@ -22,16 +22,6 @@ public class Jmn extends Branchement {
 	 */
 	public Jmn(Operande op1, Operande op2) {
 		super(op1, op2);
-	}
-
-	@Override
-	public int executeBr() {
-		if(op2().valeur() != 0)
-			// si op2 != 0, compteur ordinal == op1
-			return op1().valeur();
-		else
-			// sinon, compteur ordinal ++
-			return -1;
 	}
 
 }

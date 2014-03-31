@@ -41,10 +41,4 @@ public class Dat extends Instruction {
 		super(op1, op2);
 	}
 
-	@Override
-	public boolean execute() {
-		// fin du processus, retourne false
-		return false;
-	}
-
 }

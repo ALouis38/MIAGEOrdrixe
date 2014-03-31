@@ -3,7 +3,7 @@ package instructions.operations;
 import instructions.Etiquette;
 import instructions.Operande;
 
-public class Slt extends Branchement {
+public class Slt extends Instruction {
 	
 	/**
 	 * Constructeur avec etiquette + 2 op
@@ -22,14 +22,6 @@ public class Slt extends Branchement {
 	 */
 	public Slt(Operande op1, Operande op2) {
 		super(op1, op2);
-	}
-
-	@Override
-	public int executeBr() {
-		if(op1().valeur() != op2().valeur())
-			return -1; // PC ++
-		else
-			return -2; // PC = PC + 2
 	}
 
 }
