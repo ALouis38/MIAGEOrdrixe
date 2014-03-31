@@ -1,5 +1,6 @@
 package systeme;
 
+import instructions.operations.Branchement;
 import instructions.operations.Instruction;
 
 public class Processeur {
@@ -19,7 +20,12 @@ public class Processeur {
 	 */
 	public int execute(){
 		if (registreInstruction instanceof Branchement) {
-			compteurOrdinal = registreInstruction.execute();
+			compteurOrdinal = ((Branchement) registreInstruction).executeBr();
+			if (compteurOrdinal == -1) {
+				compteurOrdinal++;
+			} else if (compteurOrdinal == -2){
+				compteurOrdinal = compteurOrdinal +2;
+			}
 		} else {
 			if (registreInstruction.execute()) {
 				memoire.instruction(compteurOrdinal, registreInstruction);
