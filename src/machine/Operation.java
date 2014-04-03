@@ -27,6 +27,7 @@ public abstract class Operation extends Instruct {
 			i2.op1().valeur(calcul(v1,v2));
 			i2.op2().valeur(calcul(v3,v4));		
 		}
+		// stockage du resultat dans la mémoire
 		memoire().instruction(e2(), i2);
 	}
 	protected abstract int calcul(int x, int y);
