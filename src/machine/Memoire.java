@@ -1,4 +1,4 @@
-package systeme;
+package machine;
 import instructions.*;
 import instructions.operations.Instruction;
 

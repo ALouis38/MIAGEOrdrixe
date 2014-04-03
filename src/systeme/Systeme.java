@@ -1,5 +1,8 @@
 package systeme;
 
+import machine.Memoire;
+import machine.Processeur;
+
 public class Systeme {
 	
 	Memoire memoire;
