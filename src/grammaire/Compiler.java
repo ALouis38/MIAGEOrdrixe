@@ -40,7 +40,7 @@ public class Compiler implements CompilerConstants {
       case JMN:
       case DJN:
       case CMP:
-      case CLT:
+      case SLT:
         ;
         break;
       default:
@@ -68,7 +68,7 @@ public class Compiler implements CompilerConstants {
       operation = jj_consume_token(MOV);
       operande1 = operande();
       operande2 = operande();
-
+                                                                      {if (true) return new Mov(operande1, operande2);}
       break;
     case ADD:
       operation = jj_consume_token(ADD);
@@ -129,11 +129,11 @@ public class Compiler implements CompilerConstants {
       operande2 = operande();
                                                                       {if (true) return new Cmp(operande1, operande2);}
       break;
-    case CLT:
-      operation = jj_consume_token(CLT);
+    case SLT:
+      operation = jj_consume_token(SLT);
       operande1 = operande();
       operande2 = operande();
-
+                                                                    {if (true) return new Slt(operande1, operande2);}
       break;
     default:
       jj_la1[1] = jj_gen;

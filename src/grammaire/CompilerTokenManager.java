@@ -53,7 +53,7 @@ private int jjMoveStringLiteralDfa0_0()
       case 65:
          return jjMoveStringLiteralDfa1_0(0x0L, 0x80L);
       case 67:
-         return jjMoveStringLiteralDfa1_0(0x0L, 0x30000L);
+         return jjMoveStringLiteralDfa1_0(0x0L, 0x10000L);
       case 68:
          return jjMoveStringLiteralDfa1_0(0x0L, 0x8420L);
       case 74:
@@ -61,7 +61,7 @@ private int jjMoveStringLiteralDfa0_0()
       case 77:
          return jjMoveStringLiteralDfa1_0(0x0L, 0xa40L);
       case 83:
-         return jjMoveStringLiteralDfa1_0(0x0L, 0x100L);
+         return jjMoveStringLiteralDfa1_0(0x0L, 0x20100L);
       case 194:
          return jjMoveStringLiteralDfa1_0(0x6000000L, 0x0L);
       default :
@@ -346,7 +346,7 @@ null, null, null, null, null, null, null, null, null, null, null, null, null, nu
 null, null, null, null, null, null, "\43", "\44", "\100", "\53", "\55", null, null, 
 null, "\104\101\124", "\115\117\126", "\101\104\104", "\123\125\102", 
 "\115\125\114", "\104\111\126", "\115\117\104", "\112\115\120", "\112\115\132", 
-"\112\115\116", "\104\112\116", "\103\115\120", "\103\114\124", };
+"\112\115\116", "\104\112\116", "\103\115\120", "\123\114\124", };
 
 /** Lexer state names. */
 public static final String[] lexStateNames = {
