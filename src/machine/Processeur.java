@@ -7,7 +7,7 @@ public class Processeur {
 
 	Memoire memoire;
 	Instruction registreInstruction;
-	int compteurOrdinal;
+	protected int compteurOrdinal;
 	int e1, e2; // les adresses effeectives
 
 	public Processeur(Memoire memoire) {
@@ -15,6 +15,7 @@ public class Processeur {
 		compteurOrdinal = 0;
 		registreInstruction = memoire.instruction(compteurOrdinal);
 	}
+	
 
 	public abstract class Instruct {
 		public void execute() {
@@ -37,6 +38,18 @@ public class Processeur {
 
 		protected int e2() {
 			return e2;
+		}
+		
+		protected int compteurOrdinal(){
+			return compteurOrdinal;
+		}
+		
+		protected void compteurOrdinal(int pc){
+			compteurOrdinal = pc;
+		}
+		
+		protected Instruction registreInstruction(){
+			return registreInstruction;
 		}
 	}
 
@@ -121,13 +134,6 @@ public class Processeur {
 	// registreInstruction.op2().valeur(registreInstruction.op2().valeur() /
 	// registreInstruction.op1().valeur());
 	// compteurOrdinal++;
-	// }
-	//
-	// /**
-	// * DAT
-	// */
-	// private void executeDat() {
-	// compteurOrdinal = -1;
 	// }
 	//
 	// /**
