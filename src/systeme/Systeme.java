@@ -4,25 +4,28 @@ import machine.Memoire;
 import machine.Processeur;
 
 public class Systeme {
-	
-	Memoire memoire;
+
 	Processeur processeur;
-	Processus [] listeProcessus;
+	Processus[] listeProcessus;
 	int nbProcessusVivants;
-	
-	public Systeme(){
-		nbProcessusVivants = listeProcessus.length;
+
+	public Systeme(Memoire mem, Processus[] tabProcessus) {
+		this.processeur = new Processeur(mem);
+		this.listeProcessus = tabProcessus;
+		this.nbProcessusVivants = tabProcessus.length;
+	}
+
+	public void jeu() {
 		int i = 0;
-		
-		while(nbProcessusVivants > 0){
+		while (nbProcessusVivants > 1) {
 			i = i % listeProcessus.length;
-				if (listeProcessus[i].vivant()) {
-					processeur.execute(listeProcessus[i].adresseCourrante());
-					if (listeProcessus[i].adresseCourrante() == -1) {
-						listeProcessus[i].mourir();
-						nbProcessusVivants--;
-					}
+			if (listeProcessus[i].vivant()) {
+				processeur.execute(listeProcessus[i].adresseCourrante());
+				if (listeProcessus[i].adresseCourrante() == -1) {
+					listeProcessus[i].mourir();
+					nbProcessusVivants--;
 				}
+			}
 			i++;
 		}
 	}

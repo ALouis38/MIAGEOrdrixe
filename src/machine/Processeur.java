@@ -30,15 +30,14 @@ public class Processeur {
 		Object obj = memoire.instruction(adresseCourante);
 		// recup du nom de l'instruction
 		String name = obj.getClass().getName();
-		String packageExec = "machine";
-
-		String className = packageExec + name;
+		name = name.replace("instructions.operations.","");
+		String packageExec = "machine.";
+		String className = packageExec + name;		
 		Class<?> clazz;
 		try {
 			clazz = Class.forName(className);
-			System.out.println("nom de la classe : "+className);
 			Constructor<?> ctor;
-			ctor = clazz.getConstructor(String.class);
+			ctor = clazz.getConstructor(Processeur.class);
 			// instanciation de la meme instruction dans le package machine 
 			Object object = ctor.newInstance(new Object[] { this });
 			// appel de la methode execute de cette instruction
@@ -58,7 +57,6 @@ public class Processeur {
 		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public abstract class Instruct {

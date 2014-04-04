@@ -7,7 +7,7 @@ public class Memoire {
 	private Instruction [] contenu;
 	
 	/**
-	 * constructeur de mémoire
+	 * constructeur de mï¿½moire
 	 * @param taille
 	 */
 	public Memoire(int taille){
@@ -50,5 +50,13 @@ public class Memoire {
 			System.out.println(i + " : " + contenu[i]);
 		}
 	}
+	
+//	public int premiereAdresse(){
+//		for (int i = 1; i <= tailleMemoire(); i++) {
+//			if(!(instruction(i) instanceof instructions.operations.Dat)){
+//				
+//			}
+//		}
+//	}
 	
 }

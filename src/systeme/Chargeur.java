@@ -12,6 +12,7 @@ import machine.Memoire;
 
 public class Chargeur {
 	private Memoire memSysteme;
+
 	/**
 	 * Constructeur
 	 * 
@@ -30,23 +31,27 @@ public class Chargeur {
 		}
 	}
 
-	public void remplirMemoire() {
+	public int remplirMemoire() {
+		int indice = 0;
 		List<Instruction> contenuAL = restaure();
 		int lower = 0;
 		int higher = memSysteme().tailleMemoire();
 		int random = (int) (Math.random() * (higher - lower)) + lower;
 
-		/* Remplissage aléatoire pour le premier élément et sans chevauchement de la mémoire */
+		/*
+		 * Remplissage aléatoire pour le premier élément et sans chevauchement
+		 * de la mémoire
+		 */
 		for (Instruction object : contenuAL) {
-			while (!(memSysteme().instruction(random) 
-					instanceof 
-					instructions.operations.Dat)) {
+			while (!(memSysteme().instruction(random) instanceof instructions.operations.Dat)) {
 				random = random + 1;
+			}
+			if( contenuAL.get(0)==object){
+				indice =random;
 			}
 			memSysteme().instruction(random, object);
 		}
-		
-
+		return indice;
 	}
 
 	/**

@@ -9,15 +9,22 @@ public class Controleur {
 	}
 	
 	public Controleur(){
+		Processus [] tabProcessus = new Processus[2];
+		
 		Chargeur c = new Chargeur(5);
+		
 		new Compilateur("/home/c/cutroneg/git/MIAGEOrdrixe/src/tests/test.ord");
-		c.remplirMemoire();
+		Processus p1 =  new Processus(1, c.remplirMemoire());
+		tabProcessus[0] = p1;
+		
 		new Compilateur("/home/c/cutroneg/git/MIAGEOrdrixe/src/tests/test2.ord");
-		c.remplirMemoire();
+		Processus p2 =  new Processus(2, c.remplirMemoire());
+		tabProcessus[1] = p2;
+		
+		
 		c.memSysteme().afficheMemoire();
-		
-		
-		//Systeme s = new Systeme();
+		Systeme s = new Systeme(c.memSysteme(), tabProcessus);
+		s.jeu();
 	}
 
 }
