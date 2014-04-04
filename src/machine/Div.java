@@ -1,8 +1,8 @@
 package machine;
 
-public class DivExec extends Operation {
+public class Div extends Operation {
 
-	public DivExec(Processeur p) {
+	public Div(Processeur p) {
 		super(p);
 	}
 

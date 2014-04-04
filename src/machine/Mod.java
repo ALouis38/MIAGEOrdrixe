@@ -1,8 +1,8 @@
 package machine;
 
-public class ModExec extends Operation {
+public class Mod extends Operation {
 
-	public ModExec(Processeur p) {
+	public Mod(Processeur p) {
 		super(p);
 	}
 

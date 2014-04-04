@@ -1,5 +1,6 @@
 package machine;
 
+import systeme.Processus;
 import instructions.Operande;
 import instructions.operations.*;
 
@@ -14,6 +15,14 @@ public class Processeur {
 		this.memoire = memoire;
 		compteurOrdinal = 0;
 		registreInstruction = memoire.instruction(compteurOrdinal);
+	}
+	
+	/**
+	 * execute l'instruction stockée en mémoire à l'adresse courante
+	 * @param adresseCourante
+	 */
+	public void execute(int adresseCourante){
+		
 	}
 	
 

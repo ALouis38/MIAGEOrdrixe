@@ -2,9 +2,9 @@ package machine;
 
 import machine.Processeur.Instruct;
 
-public class JmpExec extends Instruct {
+public class Jmp extends Instruct {
 
-	public JmpExec(Processeur p) {
+	public Jmp(Processeur p) {
 		p.super();
 	}
 

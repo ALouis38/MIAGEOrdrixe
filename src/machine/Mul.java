@@ -1,14 +1,14 @@
 package machine;
 
-public class SubExec extends Operation {
+public class Mul extends Operation {
 
-	public SubExec(Processeur p) {
+	public Mul(Processeur p) {
 		super(p);
 	}
 
 	@Override
 	protected int calcul(int x, int y) {
-		return x-y;
+		return x*y;
 	}
 
 }

@@ -1,14 +1,14 @@
 package machine;
 
-public class MulExec extends Operation {
+public class Sub extends Operation {
 
-	public MulExec(Processeur p) {
+	public Sub(Processeur p) {
 		super(p);
 	}
 
 	@Override
 	protected int calcul(int x, int y) {
-		return x*y;
+		return x-y;
 	}
 
 }

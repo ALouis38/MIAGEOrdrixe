@@ -2,9 +2,9 @@ package machine;
 
 import machine.Processeur.Instruct;
 
-public class SltExec extends Instruct {
+public class Slt extends Instruct {
 
-	public SltExec(Processeur p) {
+	public Slt(Processeur p) {
 		p.super();
 	}
 

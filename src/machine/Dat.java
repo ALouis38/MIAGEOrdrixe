@@ -1,9 +1,9 @@
 package machine;
 import machine.Processeur.Instruct;
 
-public class DatExec extends Instruct {
+public class Dat extends Instruct {
 
-	public DatExec(Processeur p) {
+	public Dat(Processeur p) {
 		p.super();
 	}
 

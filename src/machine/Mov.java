@@ -3,9 +3,9 @@ package machine;
 import instructions.operations.Instruction;
 import machine.Processeur.Instruct;
 
-public class MovExec extends Instruct {
+public class Mov extends Instruct {
 
-	public MovExec(Processeur p) {
+	public Mov(Processeur p) {
 		p.super();
 	}
 

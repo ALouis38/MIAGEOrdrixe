@@ -3,9 +3,9 @@ package machine;
 import instructions.operations.Instruction;
 import machine.Processeur.Instruct;
 
-public class DjnExec extends Instruct {
+public class Djn extends Instruct {
 
-	public DjnExec(Processeur p) {
+	public Djn(Processeur p) {
 		p.super();
 	}
 

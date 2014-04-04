@@ -1,8 +1,8 @@
 package machine;
 
-public class AddExec extends Operation {
+public class Add extends Operation {
 
-	public AddExec(Processeur p) {
+	public Add(Processeur p) {
 		super(p);
 	}
 
