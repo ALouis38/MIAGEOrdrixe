@@ -16,7 +16,7 @@ public class Processeur {
 
 	public Processeur(Memoire memoire) {
 		this.memoire = memoire;
-		compteurOrdinal = 0;
+		compteurOrdinal = 1;
 		registreInstruction = memoire.instruction(compteurOrdinal);
 
 	}
@@ -26,8 +26,8 @@ public class Processeur {
 	 * 
 	 * @param adresseCourante
 	 */
-	public void execute(int adresseCourante) {
-		Object obj = memoire.instruction(adresseCourante);
+	public void execute(Processus processusCourant) {
+		Object obj = memoire.instruction(processusCourant.adresseCourante());
 		// recup du nom de l'instruction
 		String name = obj.getClass().getName();
 		name = name.replace("instructions.operations.","");
@@ -41,7 +41,7 @@ public class Processeur {
 			// instanciation de la meme instruction dans le package machine 
 			Object object = ctor.newInstance(new Object[] { this });
 			// appel de la methode execute de cette instruction
-			((Instruct) object).execute();
+			((Instruct) object).execute(processusCourant);
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
@@ -60,12 +60,15 @@ public class Processeur {
 	}
 
 	public abstract class Instruct {
-		public void execute() {
+		public void execute(Processus processusCourant) {
+			compteurOrdinal = processusCourant.adresseCourante();
 			registreInstruction = memoire.instruction(compteurOrdinal);
+			
 			e1 = adresseEffective(registreInstruction.op1());
 			e2 = adresseEffective(registreInstruction.op2());
-			compteurOrdinal++;
 			operer();
+			// incrémentation du compteur ordinal du procesus courant
+			processusCourant.adresseSuivante(compteurOrdinal++);
 		}
 
 		protected abstract void operer();
@@ -102,20 +105,29 @@ public class Processeur {
 	 * @return
 	 */
 	private int adresseEffective(Operande op) {
-		// adressage relatif
-		if (op.adressage().symbole().equals("$")
-				|| op.adressage().symbole().equals(""))
-			return compteurOrdinal + op.valeur();
-		// adressage immediat
-		else if (op.adressage().symbole().equals("#")) {
-			return compteurOrdinal;
+		
+		if(op!= null){
+		/*	System.out.println("op " + op);
+			System.out.println("symbole" + op.adressage().symbole());
+			System.out.println("op1 | adressage : " + op.adressage().symbole()
+					+ ", valeur : " + op.valeur());*/
+
+			// adressage relatif
+			if (op.adressage().symbole().equals("$")
+					|| op.adressage().symbole().equals(""))
+				return compteurOrdinal + op.valeur();
+			// adressage immediat
+			else if (op.adressage().symbole().equals("#")) {
+				return compteurOrdinal;
+			}
+			// adressage relatif indirect
+			else if (op.adressage().symbole().equals("@")) {
+				return compteurOrdinal
+						+ memoire.instruction(compteurOrdinal + op.valeur())
+								.op2().valeur();
+			}
 		}
-		// adressage relatif indirect
-		else if (op.adressage().symbole().equals("@")) {
-			return compteurOrdinal
-					+ memoire.instruction(compteurOrdinal + op.valeur()).op2()
-							.valeur();
-		}
+
 		return 0;
 	}
 }

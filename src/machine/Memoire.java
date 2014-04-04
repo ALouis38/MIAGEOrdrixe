@@ -20,10 +20,14 @@ public class Memoire {
 	 * @return instruction
 	 */
 	public Instruction instruction(int compteurOrdinal){
+		if(compteurOrdinal>=contenu.length){
+			compteurOrdinal = compteurOrdinal % contenu.length;
+		}
 		return contenu[compteurOrdinal];
 	}
 	
 	public int tailleMemoire(){
+		
 		return contenu.length;
 	}
 	

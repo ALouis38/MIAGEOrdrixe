@@ -29,7 +29,7 @@ public class Processus {
 	 * Accéder à l'adresse de l'instruction à exécuter
 	 * @return adresse de l'instruction à exécuter
 	 */
-	public int adresseCourrante(){
+	public int adresseCourante(){
 		return adresseCourrante;
 	}
 	

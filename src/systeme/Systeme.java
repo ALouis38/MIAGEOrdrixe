@@ -20,8 +20,8 @@ public class Systeme {
 		while (nbProcessusVivants > 1) {
 			i = i % listeProcessus.length;
 			if (listeProcessus[i].vivant()) {
-				processeur.execute(listeProcessus[i].adresseCourrante());
-				if (listeProcessus[i].adresseCourrante() == -1) {
+				processeur.execute(listeProcessus[i]);
+				if (listeProcessus[i].adresseCourante() == -1) {
 					listeProcessus[i].mourir();
 					nbProcessusVivants--;
 				}
