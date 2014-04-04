@@ -9,10 +9,14 @@ public class Controleur {
 	}
 	
 	public Controleur(){
-		new Compilateur("Z:/git/MIAGEOrdrixe/src/tests/test.ord");
-		new Compilateur("Z:/git/MIAGEOrdrixe/src/tests/test2.ord");
-		Chargeur c = new Chargeur(8);
+		Chargeur c = new Chargeur(5);
+		new Compilateur("/home/c/cutroneg/git/MIAGEOrdrixe/src/tests/test.ord");
 		c.remplirMemoire();
+		new Compilateur("/home/c/cutroneg/git/MIAGEOrdrixe/src/tests/test2.ord");
+		c.remplirMemoire();
+		c.memSysteme().afficheMemoire();
+		
+		
 		//Systeme s = new Systeme();
 	}
 

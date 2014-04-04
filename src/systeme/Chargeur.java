@@ -12,44 +12,46 @@ import machine.Memoire;
 
 public class Chargeur {
 	private Memoire memSysteme;
-	private int taille;
 	/**
 	 * Constructeur
-	 * @param taille de la mémoire
+	 * 
+	 * @param taille
+	 *            de la mémoire
 	 */
-	public Chargeur(int taille){
+	public Chargeur(int taille) {
 		Memoire memSysteme = new Memoire(taille);
-		System.out.println(memSysteme);
-		this.taille = (int) Math.pow(2, taille);
-		System.out.println(this.taille);
-	
-		//Initialisation de la m�moire
-		for(int i =1; i <= 256; i++){
-			System.out.println(i);
-				memSysteme().instruction(i, new instructions.operations.Dat(new Operande(new Relatif(),0)));
+		memSysteme(memSysteme);
+		// Initialisation de la m�moire
+		for (int i = 1; i <= memSysteme().tailleMemoire(); i++) {
+			memSysteme().instruction(
+					i,
+					new instructions.operations.Dat(new Operande(new Relatif(),
+							0)));
 		}
 	}
-	
-	public void remplirMemoire(){
+
+	public void remplirMemoire() {
 		List<Instruction> contenuAL = restaure();
 		int lower = 0;
-		int higher = (int) Math.pow(2, this.taille);
-		int random = (int)(Math.random() * (higher-lower)) + lower;
-			
-		
-		/*Remplissage al�atoire et sans chevauchement de la mémoire*/
-		for(Instruction object: contenuAL){			
-			while(!(memSysteme().instruction(random) instanceof instructions.operations.Dat)){
-				 random = random+1;
+		int higher = memSysteme().tailleMemoire();
+		int random = (int) (Math.random() * (higher - lower)) + lower;
+
+		/* Remplissage aléatoire pour le premier élément et sans chevauchement de la mémoire */
+		for (Instruction object : contenuAL) {
+			while (!(memSysteme().instruction(random) 
+					instanceof 
+					instructions.operations.Dat)) {
+				random = random + 1;
 			}
-			memSysteme().instruction(random,object);
+			memSysteme().instruction(random, object);
 		}
-		memSysteme().afficheMemoire();
+		
 
 	}
-	
+
 	/**
 	 * Désérialisation des instructions des combattants
+	 * 
 	 * @return la liste des Instruction fournie par la désérialisation
 	 */
 	public static List<Instruction> restaure() {
@@ -63,12 +65,12 @@ public class Chargeur {
 			return null;
 		}
 	}
-	
-	public Memoire memSysteme(){
+
+	public Memoire memSysteme() {
 		return this.memSysteme;
 	}
-	
-	public void memSysteme(Memoire memSysteme){
+
+	public void memSysteme(Memoire memSysteme) {
 		this.memSysteme = memSysteme;
 	}
 }
