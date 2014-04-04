@@ -7,7 +7,7 @@ public class Memoire {
 	private Instruction [] contenu;
 	
 	/**
-	 * constructeur de mÃ©moire
+	 * constructeur de mémoire
 	 * @param taille
 	 */
 	public Memoire(int taille){
@@ -22,7 +22,14 @@ public class Memoire {
 	public Instruction instruction(int compteurOrdinal){
 		return contenu[compteurOrdinal];
 	}
-
+	
+	public int tailleMemoire(){
+		return contenu.length;
+	}
+	
+	public Instruction [] contenu(){
+		return this.contenu;
+	}
 	/**
 	 * Ajout d'une instruction
 	 * @param compteurOrdinal

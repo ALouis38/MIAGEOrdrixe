@@ -36,6 +36,7 @@ public class Processeur {
 		Class<?> clazz;
 		try {
 			clazz = Class.forName(className);
+			System.out.println("nom de la classe : "+className);
 			Constructor<?> ctor;
 			ctor = clazz.getConstructor(String.class);
 			// instanciation de la meme instruction dans le package machine 

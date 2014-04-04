@@ -14,7 +14,7 @@ public class Compilateur {
         try {
             FileOutputStream f = new FileOutputStream("sauvegarde.ordx");
             ObjectOutputStream out = new ObjectOutputStream(f);
-            out.writeObject(Compiler.compile("Z:/git/MIAGEOrdrixe/src/tests/test.ord"/*filePath*/));
+            out.writeObject(Compiler.compile(filePath));
         } catch (Exception e) {
         	System.out.println(e);
             String dialog = "Pb de Sauvegarde dans le fichier";
