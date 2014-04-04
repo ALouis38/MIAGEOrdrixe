@@ -1,5 +1,8 @@
 package machine;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 import systeme.Processus;
 import instructions.Operande;
 import instructions.operations.*;
@@ -15,16 +18,47 @@ public class Processeur {
 		this.memoire = memoire;
 		compteurOrdinal = 0;
 		registreInstruction = memoire.instruction(compteurOrdinal);
+
 	}
-	
+
 	/**
 	 * execute l'instruction stockée en mémoire à l'adresse courante
+	 * 
 	 * @param adresseCourante
 	 */
-	public void execute(int adresseCourante){
-		
+	public void execute(int adresseCourante) {
+		Object obj = memoire.instruction(adresseCourante);
+		// recup du nom de l'instruction
+		String name = obj.getClass().getName();
+		String packageExec = "machine";
+
+		String className = packageExec + name;
+		Class<?> clazz;
+		try {
+			clazz = Class.forName(className);
+			Constructor<?> ctor;
+			ctor = clazz.getConstructor(String.class);
+			// instanciation de la meme instruction dans le package machine 
+			Object object = ctor.newInstance(new Object[] { this });
+			// appel de la methode execute de cette instruction
+			((Instruct) object).execute();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+
 	}
-	
 
 	public abstract class Instruct {
 		public void execute() {
@@ -48,20 +82,19 @@ public class Processeur {
 		protected int e2() {
 			return e2;
 		}
-		
-		protected int compteurOrdinal(){
+
+		protected int compteurOrdinal() {
 			return compteurOrdinal;
 		}
-		
-		protected void compteurOrdinal(int pc){
+
+		protected void compteurOrdinal(int pc) {
 			compteurOrdinal = pc;
 		}
-		
-		protected Instruction registreInstruction(){
+
+		protected Instruction registreInstruction() {
 			return registreInstruction;
 		}
 	}
-
 
 	/**
 	 * retourne l'adresse effective de l'opérande selon son type d'adressage
