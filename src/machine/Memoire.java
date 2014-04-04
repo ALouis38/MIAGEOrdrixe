@@ -55,12 +55,5 @@ public class Memoire {
 		}
 	}
 	
-//	public int premiereAdresse(){
-//		for (int i = 1; i <= tailleMemoire(); i++) {
-//			if(!(instruction(i) instanceof instructions.operations.Dat)){
-//				
-//			}
-//		}
-//	}
 	
 }

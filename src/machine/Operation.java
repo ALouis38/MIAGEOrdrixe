@@ -15,9 +15,6 @@ public abstract class Operation extends Instruct {
 		i1 = memoire().instruction(e2());
 		i2 = memoire().instruction(e1());
 		
-		System.out.println("i2 : "+i2);
-		System.out.println("i1 : "+i1);
-		
 		int v1, v2, v3, v4;
 		
 		if(

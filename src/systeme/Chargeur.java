@@ -37,7 +37,6 @@ public class Chargeur {
 		int lower = 0;
 		int higher = memSysteme().tailleMemoire();
 		int random = (int) (Math.random() * (higher - lower)) + lower;
-		System.out.println(memSysteme());
 
 		/*
 		 * Remplissage aléatoire pour le premier élément et sans chevauchement
