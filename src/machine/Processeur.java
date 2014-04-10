@@ -35,7 +35,7 @@ public class Processeur {
 		String className = packageExec + name;		
 		Class<?> clazz;
 		try {
-			System.out.println("----------EXECUTION PROCESSUS "+);
+			System.out.println("----------EXECUTION PROCESSUS "+"");
 			clazz = Class.forName(className);
 			Constructor<?> ctor;
 			ctor = clazz.getConstructor(Processeur.class);
