@@ -5,13 +5,15 @@ import instructions.operations.Instruction;
 public class Memoire {
 	
 	private Instruction [] contenu;
+	private int puissance;
 	
 	/**
 	 * constructeur de m�moire
 	 * @param taille
 	 */
-	public Memoire(int taille){
-		this.contenu = new Instruction[(int) Math.pow(2, taille)];
+	public Memoire(int puissance){
+		this.puissance = puissance;
+		this.contenu = new Instruction[(int) Math.pow(2, puissance)];
 	}
 	
 	/**
@@ -27,8 +29,11 @@ public class Memoire {
 	}
 	
 	public int tailleMemoire(){
-		
 		return contenu.length;
+	}
+	
+	public int puissance(){
+		return this.puissance;
 	}
 	
 	public Instruction [] contenu(){
