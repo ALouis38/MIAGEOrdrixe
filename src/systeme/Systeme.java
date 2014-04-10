@@ -28,6 +28,6 @@ public class Systeme {
 			}
 			i++;
 		}
-		//commit test
+//		System.out.println("le processus n°"+(i-1)%+listeProcessus.length+" a gagné");
 	}
 }

@@ -17,7 +17,7 @@ public class Controleur {
 		Processus p1 =  new Processus(1, c.remplirMemoire());
 		tabProcessus[0] = p1;
 		
-		new Compilateur("/home/c/cutroneg/git/MIAGEOrdrixe/src/tests/test2.ord");
+		new Compilateur("/home/a/amorel/git/MIAGEOrdrixe/src/tests/perdant.ord");
 		Processus p2 =  new Processus(2, c.remplirMemoire());
 		tabProcessus[1] = p2;
 		
