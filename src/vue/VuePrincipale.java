@@ -1,11 +1,15 @@
 package vue;
 
+import instructions.operations.Instruction;
+
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 
 import machine.Memoire;
@@ -17,63 +21,71 @@ import systeme.Systeme;
 public class VuePrincipale extends JFrame {
 	private JTable table;
 
-	/**
-	 * fake d'un controlleur pour tester la vue
-	 * @param args
-	 * @throws Exception
-	 */
-	public static void main(String[] args) throws Exception {
-
-		Processus[] tabProcessus = new Processus[2];
-
-		Chargeur c = new Chargeur(5);
-
-		new Compilateur("/home/c/cutroneg/git/MIAGEOrdrixe/src/tests/test.ord");
-		Processus p1 = new Processus(1, c.remplirMemoire());
-		tabProcessus[0] = p1;
-
-		new Compilateur("/home/c/cutroneg/git/MIAGEOrdrixe/src/tests/test2.ord");
-		Processus p2 = new Processus(2, c.remplirMemoire());
-		tabProcessus[1] = p2;
-
-		c.memSysteme().afficheMemoire();
-		Systeme s = new Systeme(c.memSysteme(), tabProcessus);
-		s.jeu();
-
-		new VuePrincipale(c.memSysteme());
-	}
-
 	public VuePrincipale(Memoire m) {
-		this.setSize(640, 220);
+		this.setSize(640, 100);
 		getContentPane().setLayout(null);
-		
-		int tailleMem = m.tailleMemoire();
+
+		// récupération de la taille de la mémoire
+		int tailleMem = m.puissance();
 		int nbL, nbC;
-		
-		
-		
 
-		String[] columnNames = { "1", "2", "3", "4"};
+		// conversion en tableau a 2 dimensions
+		nbL = (int) Math.pow(2, tailleMem / 2);
+		nbC = (int) Math.pow(2, tailleMem - tailleMem / 2);
 
-		Object[][] data = new Object[8][4];
+		String[] columnNames = new String[nbC];
+		for (int i = 0; i < nbC; i++) {
+			columnNames[i] = String.valueOf(i);
+		}
+
+		Object[][] data = new Object[nbL][nbC];
 		int compteur = 1;
-		
+
 		// remplissage de data avec le contenu de la mémoire
-		for(int i=0; i<8; i++){
-			for(int j=0; j<4; j++){
-				if(m.instruction(compteur).getClass().getName().equals("instructions.operations.Dat")){
-					data[i][j] = "DAT";
-				}
+		for (int i = 0; i < nbL; i++) {
+			for (int j = 0; j < nbC; j++) {
+				Instruction inst = m.instruction(compteur);
+				String nomInst = inst.getClass().getName();
+				nomInst = " "+nomInst.replace("instructions.operations.", "") + " ";
+				
+				data[i][j] = ajoutOperandes(nomInst, inst);
 				compteur++;
 			}
 		}
-		
+
 		table = new JTable(data, columnNames);
-		table.setBounds(0, 0, 620, 200);
+		table.setBounds(0, 0, 620, 100);
 
 		getContentPane().add(table);
 
 		this.initialize();
+	}
+	
+	/**
+	 * ajoute les opérandes au string qui sera affiché dans la cellule du jtable
+	 * @param nomInst
+	 * @param inst
+	 * @return
+	 */
+	public String ajoutOperandes(String nomInst, Instruction inst){
+		String symbole;
+		
+		if(inst.op1() != null){
+			if(inst.op1().adressage() != null)
+				symbole = inst.op1().adressage().symbole();
+			else
+				symbole = "";
+			nomInst+=symbole+String.valueOf(inst.op1().valeur());
+		}
+		if(inst.op2() != null){
+			if(inst.op2().adressage() != null)
+				symbole = inst.op2().adressage().symbole();
+			else
+				symbole = "";
+			nomInst+=symbole+String.valueOf(inst.op2().valeur());
+		}
+		
+		return nomInst;
 	}
 
 	public void initialize() {

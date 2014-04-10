@@ -1,5 +1,5 @@
 import systeme.*;
-
+import vue.*;
 
 public class Controleur {
 
@@ -25,6 +25,8 @@ public class Controleur {
 		c.memSysteme().afficheMemoire();
 		Systeme s = new Systeme(c.memSysteme(), tabProcessus);
 		s.jeu();
+		
+		new VuePrincipale(c.memSysteme());
 	}
 
 }
