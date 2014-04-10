@@ -30,6 +30,6 @@ public class Systeme {
 			}
 			i++;
 		}
-		System.out.println("le processus n°"+(i-1)%+listeProcessus.length+" a gagné");
+		System.out.println("le processus n°"+listeProcessus[i].numero()+" a gagné");
 	}
 }
