@@ -13,11 +13,11 @@ public class Controleur {
 		
 		Chargeur c = new Chargeur(5);
 		
-		new Compilateur("/home/c/cutroneg/git/MIAGEOrdrixe/src/tests/test.ord");
+		new Compilateur("/home/a/amorel/git/MIAGEOrdrixe/src/tests/perdant.ord");
 		Processus p1 =  new Processus(1, c.remplirMemoire());
 		tabProcessus[0] = p1;
 		
-		new Compilateur("/home/a/amorel/git/MIAGEOrdrixe/src/tests/perdant.ord");
+		new Compilateur("/home/a/amorel/git/MIAGEOrdrixe/src/tests/perdant3coups.ord");
 		Processus p2 =  new Processus(2, c.remplirMemoire());
 		tabProcessus[1] = p2;
 		

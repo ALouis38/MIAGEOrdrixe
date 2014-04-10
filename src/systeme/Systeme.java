@@ -20,7 +20,9 @@ public class Systeme {
 		while (nbProcessusVivants > 1) {
 			i = i % listeProcessus.length;
 			if (listeProcessus[i].vivant()) {
-				processeur.execute(listeProcessus[i]);
+				listeProcessus[i].adresseSuivante(processeur.execute(listeProcessus[i]));
+//				System.out.println("PC RETOURNE : "+processeur.execute(listeProcessus[i]));
+				System.out.println("Adresse courante :"+listeProcessus[i].adresseCourante());
 				if (listeProcessus[i].adresseCourante() == -1) {
 					listeProcessus[i].mourir();
 					nbProcessusVivants--;
@@ -28,6 +30,6 @@ public class Systeme {
 			}
 			i++;
 		}
-//		System.out.println("le processus n°"+(i-1)%+listeProcessus.length+" a gagné");
+		System.out.println("le processus n°"+(i-1)%+listeProcessus.length+" a gagné");
 	}
 }

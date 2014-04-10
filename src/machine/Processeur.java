@@ -26,7 +26,8 @@ public class Processeur {
 	 * 
 	 * @param adresseCourante
 	 */
-	public void execute(Processus processusCourant) {
+	public int execute(Processus processusCourant) {
+		int newPC = -1;
 		Object obj = memoire.instruction(processusCourant.adresseCourante());
 		// recup du nom de l'instruction
 		String name = obj.getClass().getName();
@@ -35,14 +36,19 @@ public class Processeur {
 		String className = packageExec + name;		
 		Class<?> clazz;
 		try {
-			System.out.println("----------EXECUTION PROCESSUS "+"");
+			System.out.println("----------EXECUTION PROCESSUS "+processusCourant.numero()+"----------");
+			System.out.println("----------ETAT MEMOIRE AVANT EXECUTION----------");
+//			memoire.afficheMemoire();
 			clazz = Class.forName(className);
 			Constructor<?> ctor;
 			ctor = clazz.getConstructor(Processeur.class);
 			// instanciation de la meme instruction dans le package machine 
 			Object object = ctor.newInstance(new Object[] { this });
 			// appel de la methode execute de cette instruction
-			((Instruct) object).execute(processusCourant);
+			newPC = ((Instruct) object).execute(processusCourant);
+			System.out.println("----------ETAT MEMOIRE APRES EXECUTION----------");
+//			memoire.afficheMemoire();
+			
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
@@ -58,18 +64,23 @@ public class Processeur {
 		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
 		}
+		return newPC;
 	}
 
 	public abstract class Instruct {
-		public void execute(Processus processusCourant) {
+		public int execute(Processus processusCourant) {
 			compteurOrdinal = processusCourant.adresseCourante();
+			System.out.println("*******PC ACTUEL :" +compteurOrdinal);
 			registreInstruction = memoire.instruction(compteurOrdinal);
-			
+			System.out.println("++++++EXECUTE L'INSTRUCTION A L'ADRESSE "+compteurOrdinal);
 			e1 = adresseEffective(registreInstruction.op1());
 			e2 = adresseEffective(registreInstruction.op2());
+			compteurOrdinal++;
 			operer();
 			// incrémentation du compteur ordinal du procesus courant
-			processusCourant.adresseSuivante(compteurOrdinal++);
+			
+			System.out.println("*******PC A LA FIN :"+compteurOrdinal);
+			return compteurOrdinal;
 		}
 
 		protected abstract void operer();
